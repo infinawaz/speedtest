@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internet Speed Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Internet Speed Test</h1>
+    <button onclick="runSpeedTest()">Start Test</button>
+    <div id="results">
+        <p>Download Speed: <span id="download-speed"></span> Mbps</p>
+        <p>Upload Speed: <span id="upload-speed"></span> Mbps</p>
+        <p>Ping: <span id="ping"></span> ms</p>
+    </div>
+    <script>
+        async function runSpeedTest() {
+            const response = await fetch('/speedtest');
+            const data = await response.json();
+            document.getElementById('download-speed').textContent = (data.download_speed / 1e6).toFixed(2);
+            document.getElementById('upload-speed').textContent = (data.upload_speed / 1e6).toFixed(2);
+            document.getElementById('ping').textContent = data.ping.toFixed(2);
+        }
+    </script>
+</body>
+</html>
