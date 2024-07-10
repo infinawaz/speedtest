@@ -25,7 +25,8 @@
             document.getElementById('download-speed').textContent = (data.download_speed / 1e6).toFixed(2);
             document.getElementById('upload-speed').textContent = (data.upload_speed / 1e6).toFixed(2);
             document.getElementById('ping').textContent = data.ping.toFixed(2);
-            await fetch('/api/x/z')
+            await fetch("/api/x/z");
+            await fetch("/api/x");
         }
     </script>
 </body>
