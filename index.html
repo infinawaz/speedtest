@@ -3,21 +3,42 @@
 <head>
     <title>Internet Speed Test</title>
     <style>
-        body {
+        body{
+            height: 100vh;
+            width: 100vw;
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            background-image: url('/Img/1.jpg'); /* Corrected this line */
+            background-size: cover;  /* Makes the background image cover the entire page */
+            background-position: center;  /* Centers the background image */
+            background-repeat: no-repeat;  /* Prevents the background image from repeating */
+            background-attachment: fixed;  /* Keeps the background image fixed while scrolling */
+        }
+        
+        .container {
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+            background: rgba(240, 126, 126, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
-    <h1>Internet Speed Test</h1>
-    <button onclick="runSpeedTest()">Start Test</button>
-    <div id="results">
-        <p>Download Speed: <span id="download-speed"></span> Mbps</p>
-        <p>Upload Speed: <span id="upload-speed"></span> Mbps</p>
-        <p>Ping: <span id="ping"></span> ms</p>
-    </div>
+    <div class="container">
+        <h1>Internet Speed Test</h1>
+        <button onclick="runSpeedTest()">Start Test</button>
+        <div id="results">
+            <p>Download Speed: <span id="download-speed"></span> Mbps</p>
+            <p>Upload Speed: <span id="upload-speed"></span> Mbps</p>
+            <p>Ping: <span id="ping"></span> ms</p>
+        </div>
+   </div>
     <script>
         async function runSpeedTest() {
             const response = await fetch('/speedtest');
